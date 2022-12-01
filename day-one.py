@@ -19,16 +19,16 @@ def read_input(url:str)->list:
     return list_input
 
 def max_value(list_input:list):
-    max_no = 0
+    max_no = []
     sum = 0
     for item in list_input:
         if item != '':
             sum += int(item)
         else:
-            if max_no < sum:
-                max_no = sum
+            max_no.append(sum)
             sum = 0
-    print(max_no)
-    return max_no
+    max_no.sort(reverse=True)
+    print(max_no[0:3])
+    return max_no[0:3]
 
-max_value(read_input(url))
+print(sum(max_value(read_input(url))))
